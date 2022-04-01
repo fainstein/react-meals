@@ -1,0 +1,37 @@
+.videoContainer {
+  position: absolute; /* or absolute or fixed */
+  overflow: hidden;
+}
+.heroVideo {
+  width: 100vw;
+  object-fit: cover;
+  height: 500px;
+}
+
+.mealsDescription {
+  position: absolute;
+  background-color: #874356;
+  color: #f6e7d8;
+  width: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 45vh;
+}
+
+@media (max-width: 800px) {
+  .heroVideo {
+    width: 100vw;
+    height: 80vh;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .mealsDescription {
+    width: 90vw;
+    padding: 3%;
+  }
+}

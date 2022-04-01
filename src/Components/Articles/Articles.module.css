@@ -1,0 +1,22 @@
+.listWrapper {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.articlesList {
+  position: relative;
+  margin-top: 85vh;
+  background-color: #874356;
+  color: #f6e7d8;
+  margin-bottom: 50px;
+  min-width: 90vw;
+}
+
+@media (min-width: 800px) {
+  .articlesList {
+    margin-top: 70vh;
+    min-width: 70vw;
+  }
+}

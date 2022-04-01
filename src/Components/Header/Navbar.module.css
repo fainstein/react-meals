@@ -1,0 +1,18 @@
+.navbar {
+    height: 100px;
+    background-color: #F68989;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    color: #F6E7D8;
+}
+
+@media (max-width: 800px) {
+    .navbar {
+        flex-direction: column;
+    }
+}
