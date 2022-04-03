@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Components/Header/Header";
 import Articles from "./Components/Articles/Articles";
 import "./App.module.css";
-import { CartContextProvider } from "./CartContext/cart-context";
+import CartProvider from "./store/CartProvider";
 
 function App() {
   const DUMMY_ARTICLES = [
@@ -37,12 +37,10 @@ function App() {
   ];
 
   return (
-    <CartContextProvider
-      value={{ cartItems: [], totalItems: 0, totalPrice: 0 }}
-    >
+    <CartProvider>
       <Header></Header>
       <Articles articles={DUMMY_ARTICLES}></Articles>
-    </CartContextProvider>
+    </CartProvider>
   );
 }
 

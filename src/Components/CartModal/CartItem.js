@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import styles from "./CartItem.module.css";
 import Hr from "../UI/Hr";
-import CartContext from "../../CartContext/cart-context";
+import CartContext from "../../store/cart-context";
 
 const CartItem = (props) => {
   const [itemQuantity, setItemQuantity] = useState(props.data.quantity);

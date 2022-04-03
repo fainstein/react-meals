@@ -22,15 +22,5 @@
 .articleCta {
   display: flex;
   flex-direction: column;
-}
-
-.articleQuantity {
-  display: flex;
   justify-content: space-evenly;
-  align-items: center;
-}
-
-.articleQuantity input {
-  width: 40px;
-  margin-left: 20px;
 }

@@ -1,17 +1,25 @@
 import React, { useRef, useContext } from "react";
 import styles from "./Article.module.css";
 import Button from "../UI/Button";
-import CartContext from "../../CartContext/cart-context";
+import CartContext from "../../store/cart-context";
+import Input from "../UI/Input";
 import Hr from "../UI/Hr";
 
 const Article = (props) => {
   const articleInputRef = useRef();
-  const ctx = useContext(CartContext);
+  const cartCtx = useContext(CartContext);
 
   const addClickHandler = () => {
-    if (articleInputRef.current.value > 0) {
-      ctx.onAddItems(props.data, articleInputRef.current.value);
-      articleInputRef.current.value = 1;
+    const enteredAmount = articleInputRef.current.value;
+    const enteredNumberAmount = +enteredAmount;
+    if (enteredNumberAmount > 0 && enteredNumberAmount < 6) {
+      const newItem = props.data;
+      newItem.amount = parseInt(enteredNumberAmount);
+
+      cartCtx.addItem(newItem);
+      enteredNumberAmount = 1;
+    } else {
+      console.log("Amount error");
     }
   };
 
@@ -26,17 +34,18 @@ const Article = (props) => {
           <p className={styles.articlePrice}>$ {props.data.price.toFixed(2)}</p>
         </div>
         <div className={styles.articleCta}>
-          <div className={styles.articleQuantity}>
-            <p className={styles.amountTitle}>Amount</p>
-            <input
-              ref={articleInputRef}
-              type="number"
-              min="1"
-              max="5"
-              step="1"
-              defaultValue="1"
-            ></input>
-          </div>
+          <Input
+            label="Amount"
+            ref={articleInputRef}
+            input={{
+              id: "amount",
+              type: "number",
+              min: "1",
+              max: "5",
+              step: "1",
+              defaultValue: "1",
+            }}
+          ></Input>
           <Button onClick={addClickHandler}>+ Add</Button>
         </div>
       </div>

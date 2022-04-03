@@ -1,13 +1,18 @@
 import React, { useContext, useState } from "react";
 import styles from "./CartControl.module.css";
-import CartContext from "../../CartContext/cart-context";
+import CartContext from "../../store/cart-context";
 import CartModal from "../CartModal/CartModal";
 
 const CartControl = () => {
   const [cartModalVisible, setCartModalVisible] = useState(false);
-  const ctx = useContext(CartContext);
+  const cartCtx = useContext(CartContext);
+
+  const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
+    return curNumber + item.amount;
+  }, 0);
+
   const cartClickHandler = () => {
-    setCartModalVisible(true);
+    setCartModalVisible(true); 
   };
 
   const closeCartHandler = () => {
@@ -16,7 +21,7 @@ const CartControl = () => {
   return (
     <>
       {cartModalVisible && (
-        <CartModal onCloseCart={closeCartHandler} data={ctx}></CartModal>
+        <CartModal onCloseCart={closeCartHandler}></CartModal>
       )}
       <div className={styles.cartControl} onClick={cartClickHandler}>
         <span className={`material-icons-outlined material-icons`}>
@@ -24,7 +29,7 @@ const CartControl = () => {
         </span>
         <p className={styles.cartTitle}>Your cart</p>
         <div className={styles.cartItems}>
-          <p className={styles.cartTitle}>{ctx.totalItems}</p>
+          <p className={styles.cartTitle}>{numberOfCartItems}</p>
         </div>
       </div>
     </>
