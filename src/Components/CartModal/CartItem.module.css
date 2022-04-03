@@ -1,0 +1,33 @@
+.cartItemData {
+  display: flex;
+  align-items: center;
+}
+
+.cartInput {
+  width: 30px;
+  margin-left: 20px;
+}
+
+.cartContainer,
+.operations {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 75px;
+}
+
+.operator {
+  background-color: #f68989;
+  border-radius: 5px;
+  padding: 5% 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.operator {
+  margin: 0;
+  font-size: 1.75rem;
+}

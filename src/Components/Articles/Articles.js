@@ -8,7 +8,13 @@ const Articles = (props) => {
     <div className={styles.listWrapper}>
       <Card className={styles.articlesList}>
         {props.articles.map((article, i) => {
-          return <Article lastItem={i+1 == props.articles.length} key={article.key} data={article}></Article>;
+          return (
+            <Article
+              lastItem={i + 1 === props.articles.length}
+              key={article.key}
+              data={article}
+            ></Article>
+          );
         })}
       </Card>
     </div>

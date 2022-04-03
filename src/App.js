@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "./Components/Header/Header";
 import Articles from "./Components/Articles/Articles";
-import './App.module.css';
+import "./App.module.css";
+import { CartContextProvider } from "./CartContext/cart-context";
 
 function App() {
   const DUMMY_ARTICLES = [
@@ -9,33 +10,39 @@ function App() {
       name: "Sushi",
       description: "Finest fish and veggies",
       price: 22.99,
-      key: 0
+      id: 0,
+      key: Math.floor(Math.random() * 100),
     },
     {
       name: "Schnitzel",
       description: "A german specialty!",
-      price: 16.50,
-      key: 1
+      price: 16.5,
+      id: 1,
+      key: Math.floor(Math.random() * 100),
     },
     {
       name: "BBQ Burger",
       description: "American, raw, meaty",
       price: 12.99,
-      key: 2
+      id: 2,
+      key: Math.floor(Math.random() * 100),
     },
     {
       name: "Green Bowl",
       description: "Healthy... and green...",
       price: 18.99,
-      key: 3
+      id: 3,
+      key: Math.floor(Math.random() * 100),
     },
   ];
 
   return (
-    <>
+    <CartContextProvider
+      value={{ cartItems: [], totalItems: 0, totalPrice: 0 }}
+    >
       <Header></Header>
       <Articles articles={DUMMY_ARTICLES}></Articles>
-    </>
+    </CartContextProvider>
   );
 }
 

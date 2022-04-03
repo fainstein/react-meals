@@ -7,6 +7,7 @@
     background-color: #874356;
     padding: 1% 10px;
     border-radius: 100px;
+    cursor: pointer;
 }
 
 .cartItems {

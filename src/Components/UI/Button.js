@@ -6,7 +6,7 @@ const Button = (props) => {
     ? `${props.className} ${styles.button}`
     : `${styles.button}`;
 
-  return <button className={classes}>{props.children}</button>;
+  return <button onClick={props.onClick} className={classes}>{props.children}</button>;
 };
 
 export default Button;
