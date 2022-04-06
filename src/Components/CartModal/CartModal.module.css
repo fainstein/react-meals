@@ -21,6 +21,8 @@
   top: 50%;
   transform: translate(-50%, -50%);
   color: #f6e7d8;
+  max-height: 60vh;
+  overflow: scroll;
 }
 
 .close-icon {

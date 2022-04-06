@@ -11,7 +11,7 @@ const Article = (props) => {
 
   const addClickHandler = () => {
     const enteredAmount = articleInputRef.current.value;
-    const enteredNumberAmount = +enteredAmount;
+    let enteredNumberAmount = +enteredAmount;
     if (enteredNumberAmount > 0 && enteredNumberAmount < 6) {
       const newItem = props.data;
       newItem.amount = parseInt(enteredNumberAmount);
